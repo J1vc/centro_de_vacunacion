@@ -44,8 +44,8 @@ class ColaVacunacion:
 def menu():
     cola_vacunacion = ColaVacunacion()
     while True:
-        print("****Centro de Vacunacion****")
-        print("\n1) Registrar persona")
+        print("\n****Centro de Vacunacion****")
+        print("1) Registrar persona")
         print("2) Atender siguiente")
         print("3) Mostrar cola")
         print("4) Mostrar siguiente")
@@ -61,6 +61,8 @@ def menu():
                     break
                 except ValueError:
                     print("Ingrese un numero para la identificacion.")
+            persona = Persona(nombre, identificacion)
+            cola_vacunacion.registrar_persona(persona)
         
         elif opcion == "2":
             cola_vacunacion.atender_siguiente()
