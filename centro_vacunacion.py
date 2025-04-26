@@ -41,4 +41,43 @@ class ColaVacunacion:
         siguiente = self.cola[0]
         print(f"Siguiente en la cola: {siguiente.nombre} con identificacion {siguiente.identificacion}")
         return siguiente
+def menu():
+    cola_vacunacion = ColaVacunacion()
+    while True:
+        print("****Centro de Vacunacion****")
+        print("\n1) Registrar persona")
+        print("2) Atender siguiente")
+        print("3) Mostrar cola")
+        print("4) Mostrar siguiente")
+        print("5) Salir")
+
+        opcion = input("Seleccione una opcion (1-5): ")
+
+        if opcion == "1":
+            nombre = input("Ingrese el nombre de la persona: ")
+            while True:
+                try:
+                    identificacion = int(input("Ingrese la identificacion de la persona: "))
+                    break
+                except ValueError:
+                    print("Ingrese un numero para la identificacion.")
         
+        elif opcion == "2":
+            cola_vacunacion.atender_siguiente()
+        
+        elif opcion == "3":
+            cola_vacunacion.mostrar_cola()
+
+        elif opcion == "4":
+            cola_vacunacion.mostrar_siguiente()
+
+        elif opcion == "5":
+            print("Saliendo del programa.")
+            break
+
+        else:
+            print("Opcion no valida. Intente de nuevo.")
+            
+
+menu()
+
